@@ -66,7 +66,7 @@ Certificate:
         <SNIP>
 ```
 
-## SRX head-end certificate
+## SRX head-end certificate(s)
 **Alter ```cert_list_server``` file, default contents:**
 ```
 cat cert_list_server 
@@ -116,6 +116,80 @@ Certificate:
         <SNIP>
 ```
 
+## VPN user/spoke certificate(s)
+**Alter ```PKCS12_password``` file containing password for PKCS12 container export, default contents:**
+```
+cat PKCS12_password 
+changeme!
+```
 
+**Alter ```cert_list_user``` file, default contents:**
+```
+cat cert_list_user 
+#put here user FQDN (email) of certificates, line by line, no spaces allowed
+user1@cert.auth
+user2@cert.auth
+```
+**Generate SRX user/spoke certificate(s) with validity of 2Y**:
+```
+./3_CA_gencerts_from_cert_list-user.sh 720
+```
+**To view details of generated certificate (by default terse output is printed while generating)**:
+```
+openssl x509 -in CA/user1_cert_auth-cert.pem -text -noout
+```
+```
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 3 (0x3)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN = DEMO_CA
+        Validity
+            Not Before: Feb 16 17:06:24 2025 GMT
+            Not After : Feb  6 17:06:24 2027 GMT
+        Subject: CN = user1
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (4096 bit)
+                Modulus:
+                    00:a5:48:47:85:9c:ed:51:2e:d4:3f:79:75:a7:87:
+                    <SNIP>
+        X509v3 extensions:
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Authority Key Identifier: 
+                33:32:95:65:59:8B:9C:71:10:9E:60:25:F9:2F:E6:56:24:1E:58:10
+            X509v3 Subject Key Identifier: 
+                97:FF:D2:C4:70:8C:56:2F:74:3D:0A:1A:89:CC:01:2D:CE:D2:24:D2
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 Subject Alternative Name: 
+                email:user1@cert.auth
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        48:b7:a2:9c:95:2a:99:d6:be:c0:cd:53:4d:91:35:cf:73:63:
+        <SNIP>
+```
+**Alternatively to view PKCS12 container**:
+
+(crypto settings are by purpose weakened for compatability purposes, e.g., for purpose of import on Android 13)
+
+```
+openssl pkcs12 -in CA/user1_cert_auth.p12 -info
+```
+```
+Enter Import Password:
+MAC: sha1, Iteration 2048
+MAC length: 20, salt length: 8
+PKCS7 Encrypted data: pbeWithSHA1And3-KeyTripleDES-CBC, Iteration 2048
+Certificate bag
+Bag Attributes
+    friendlyName: user1
+    localKeyID: FB 4B 94 2B 48 07 BF A8 75 D5 A0 CB E5 9E 22 81 E2 D2 A2 9A 
+subject=CN = user1
+issuer=CN = DEMO_CA
+<SNIP>
+```
 
 
