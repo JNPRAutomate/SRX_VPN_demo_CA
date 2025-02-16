@@ -1,0 +1,8 @@
+[ server_cert ]
+basicConstraints=critical,CA:FALSE
+authorityKeyIdentifier = keyid:always
+subjectKeyIdentifier = hash
+extendedKeyUsage = serverAuth
+#crlDistributionPoints = URI:http://host/cacrl.pem
+#authorityInfoAccess = caIssuers;URI:http://host/cacert.pem
+subjectAltName = DNS:srx.domain.tld

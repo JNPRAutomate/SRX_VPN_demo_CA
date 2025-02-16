@@ -1,0 +1,8 @@
+[ user_cert ]
+basicConstraints=critical,CA:FALSE
+authorityKeyIdentifier = keyid:always
+subjectKeyIdentifier = hash
+extendedKeyUsage = clientAuth
+#crlDistributionPoints = URI:http://host/cacrl.pem
+#authorityInfoAccess = caIssuers;URI:http://host/cacert.pem
+subjectAltName = email:user2@cert.auth

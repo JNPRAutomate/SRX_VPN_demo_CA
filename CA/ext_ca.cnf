@@ -1,0 +1,7 @@
+[ ca_cert ]
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid
+basicConstraints = critical,CA:true, pathlen:0
+keyUsage = critical, keyCertSign, cRLSign
+#crlDistributionPoints = URI:http://host/cacrl.pem
+#authorityInfoAccess = caIssuers;URI:http://host/cacert.pem
