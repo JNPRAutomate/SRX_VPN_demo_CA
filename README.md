@@ -67,7 +67,7 @@ Certificate:
 ```
 
 ## SRX head-end certificate(s)
-**Alter ```cert_list_server``` file, default contents:**
+**Alter the** ```cert_list_server``` **file, default contents:**
 ```
 cat cert_list_server 
 #put here DNS FQDN of certificates, line by line, no spaces allowed
@@ -117,13 +117,13 @@ Certificate:
 ```
 
 ## VPN user/spoke certificate(s)
-**Alter ```PKCS12_password``` file containing password for PKCS12 container export, default contents:**
+**Alter the** ```PKCS12_password``` **file containing password for PKCS12 container export, default contents:**
 ```
 cat PKCS12_password 
 changeme!
 ```
 
-**Alter ```cert_list_user``` file, default contents:**
+**Alter the** ```cert_list_user``` **file, default contents:**
 ```
 cat cert_list_user 
 #put here user FQDN (email) of certificates, line by line, no spaces allowed
@@ -173,7 +173,7 @@ Certificate:
 ```
 **Alternatively to view PKCS12 container**:
 
-(crypto settings are by purpose weakened for compatability purposes, e.g., for purpose of import on Android 13)
+(sidenote - PKCS12 container crypto is weakened for compatability purposes, e.g., for purpose of import on Android 13)
 
 ```
 openssl pkcs12 -in CA/user1_cert_auth.p12 -info
