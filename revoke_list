@@ -1,0 +1,3 @@
+#put here certificate SAN(s) for revocations
+#srx.domain.tld
+#user1@cert.auth

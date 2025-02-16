@@ -1,0 +1,3 @@
+#put here user FQDN (email) of certificates, line by line, no spaces allowed
+user1@cert.auth
+user2@cert.auth
