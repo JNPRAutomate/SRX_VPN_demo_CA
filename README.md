@@ -171,7 +171,7 @@ Certificate:
         48:b7:a2:9c:95:2a:99:d6:be:c0:cd:53:4d:91:35:cf:73:63:
         <SNIP>
 ```
-**Alternatively to view PKCS12 container**:
+**Alternatively to view the PKCS12 container**:
 
 (sidenote - PKCS12 container crypto is weakened for compatability purposes, e.g., for purpose of import on Android 13)
 
@@ -191,5 +191,7 @@ subject=CN = user1
 issuer=CN = DEMO_CA
 <SNIP>
 ```
+
+
 
 
