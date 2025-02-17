@@ -192,6 +192,35 @@ issuer=CN = DEMO_CA
 <SNIP>
 ```
 
+## Revoking user/spoke certificate(s)
+
+**Alter the** ```revoke_list``` **file, default contents:**
+```
+cat revoke_list 
+#put here certificate SAN(s) for revocations
+#srx.domain.tld
+#user1@cert.auth
+```
+
+**After uncommenting** ```user1@cert.auth``` **in the above file, CRL valid for 10 days:**
+Sidenote - typically CDPs would be configured - review ```*.cnf``` files in the CA directory
+```
+./4_CA_revokecerts_from_revoke_list.sh 10
+```
+```
+Using configuration from ./openssl.cnf
+Revoking Certificate 03.
+Database updated
+Using configuration from ./openssl.cnf
+V       270206165023Z           02      unknown /CN=srx.domain.tld
+R       270206170624Z   250217234612Z   03      unknown /CN=user1
+V       270206170625Z           04      unknown /CN=user2
+3 entries loaded from the database
+generating index
+making CRL
+signing CRL
+```
+
 
 
 
