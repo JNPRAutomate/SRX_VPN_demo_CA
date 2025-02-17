@@ -223,5 +223,42 @@ signing CRL
 
 Sidenote - typically CDPs would be configured during CA generation - review ```*.cnf``` files in the CA directory
 
+## Extending CA certificate validity
+
+To re-issue CA certificate with validity time by 10 days:
+
+```
+./5_CA_renew.sh 10
+Using configuration from ./openssl.cnf
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+        Serial Number: 6 (0x6)
+        Validity
+            Not Before: Feb 17 23:53:53 2025 GMT
+            Not After : Feb 27 23:53:53 2025 GMT
+        Subject:
+            commonName                = DEMO_CA
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                33:32:95:65:59:8B:9C:71:10:9E:60:25:F9:2F:E6:56:24:1E:58:10
+            X509v3 Authority Key Identifier: 
+                33:32:95:65:59:8B:9C:71:10:9E:60:25:F9:2F:E6:56:24:1E:58:10
+            X509v3 Basic Constraints: critical
+                CA:TRUE, pathlen:0
+            X509v3 Key Usage: critical
+                Certificate Sign, CRL Sign
+Certificate is to be certified until Feb 27 23:53:53 2025 GMT (10 days)
+
+Write out database with 1 new entries
+Database updated
+```
+
+
+
+
+
+
+
 
 
