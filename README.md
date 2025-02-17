@@ -203,7 +203,7 @@ cat revoke_list
 ```
 
 **After uncommenting** ```user1@cert.auth``` **in the above file, CRL valid for 10 days:**
-Sidenote - typically CDPs would be configured - review ```*.cnf``` files in the CA directory
+
 ```
 ./4_CA_revokecerts_from_revoke_list.sh 10
 ```
@@ -221,6 +221,7 @@ making CRL
 signing CRL
 ```
 
+Sidenote - typically CDPs would be configured during CA generation - review ```*.cnf``` files in the CA directory
 
 
 
