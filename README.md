@@ -1,7 +1,7 @@
 # SRX_VPN_demo_CA
-Simple demo CA meant to create head-end and user/spoke certificates for Juniper SRX dial-up and S2S VPNs. Tested on Debian Linux 12, any modern Linux distribution should work.
+Simple demo CA meant to create head-end and user/spoke certificates for Juniper SRX dial-up and S2S VPNs. Tested on Debian Linux 12, any modern Linux distribution equipped with ```bash openssl sed cut head grep``` should work.
 
-Alternative certificate subject names are DNS for VPN head-end(s) and user FQDN (email) for VPN spokes/dial-up clients.
+Alternative certificate subject names are FQDN (DNS) for VPN head-end(s) and user FQDN (email) for VPN spokes/dial-up clients.
 
 ## **Example IKE-ID use with the out of the box SRX_VPN_demo_CA certificates:**
 
