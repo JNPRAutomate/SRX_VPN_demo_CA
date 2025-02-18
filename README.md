@@ -263,6 +263,8 @@ To re-issue CA certificate with validity time by 10 days:
 
 ```
 ./5_CA_renew.sh 10
+```
+```
 Using configuration from ./openssl.cnf
 Check that the request matches the signature
 Signature ok
@@ -283,9 +285,6 @@ Certificate Details:
             X509v3 Key Usage: critical
                 Certificate Sign, CRL Sign
 Certificate is to be certified until Feb 27 23:53:53 2025 GMT (10 days)
-
-Write out database with 1 new entries
-Database updated
 ```
 
 
