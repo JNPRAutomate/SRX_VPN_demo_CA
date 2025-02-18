@@ -251,6 +251,12 @@ MIIClTB/AgEBMA0GCSqGSIb3DQEBCwUAMBIxEDAOBgNVBAMMB0RFTU9fQ0EXDTI1
 -----END X509 CRL-----
 ```
 
+**Alternatively to view the resulting CRL in DER format:**
+
+```
+openssl crl -inform DER -in CA/cacrl.crl  -text
+```
+
 ## Extending CA certificate validity
 
 To re-issue CA certificate with validity time by 10 days:
