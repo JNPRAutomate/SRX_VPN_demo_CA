@@ -13,6 +13,7 @@ if [ $# -eq 1 ]; then
 
   done
   openssl ca -verbose -config ./openssl.cnf -gencrl -crldays $1 -out cacrl.pem
+  openssl crl -in cacrl.pem -outform DEL -out cacrl.crl
 else
   echo -e "\n Usage: $0 [days validity]\n"
 fi
