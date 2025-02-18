@@ -30,6 +30,7 @@ remote {
 Clone from GitHub
 ```
 git clone https://github.com/JNPRAutomate/SRX_VPN_demo_CA
+cd SRX_VPN_demo_CA
 chmod 755 .needed_binaries.sh *.sh
 ```
 or download and extract provided ```.zip``` file, then:
