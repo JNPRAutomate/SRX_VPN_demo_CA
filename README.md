@@ -221,14 +221,35 @@ making CRL
 signing CRL
 ```
 
-**Sidenote - typically CDPs would be configured during CA generation - review ```*.cnf``` files in the CA directory**
+**Sidenote - typically CDPs would be configured during CA generation - review** ```*.cnf``` **files in the CA directory**
 
 **To view the resulting CRL:**
 
 ```
 openssl crl -inform PEM -in CA/cacrl.pem  -text
 ```
-
+```
+Certificate Revocation List (CRL):
+        Version 2 (0x1)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN = DEMO_CA
+        Last Update: Feb 17 23:46:12 2025 GMT
+        Next Update: Feb 27 23:46:12 2025 GMT
+        CRL extensions:
+            X509v3 Authority Key Identifier: 
+                33:32:95:65:59:8B:9C:71:10:9E:60:25:F9:2F:E6:56:24:1E:58:10
+Revoked Certificates:
+    Serial Number: 03
+        Revocation Date: Feb 17 23:46:12 2025 GMT
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        90:94:50:8c:49:fa:db:b6:b6:cb:e4:ac:8a:38:79:86:e5:1c:
+        <SNIP>
+-----BEGIN X509 CRL-----
+MIIClTB/AgEBMA0GCSqGSIb3DQEBCwUAMBIxEDAOBgNVBAMMB0RFTU9fQ0EXDTI1
+<SNIP>
+-----END X509 CRL-----
+```
 
 ## Extending CA certificate validity
 
