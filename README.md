@@ -221,7 +221,14 @@ making CRL
 signing CRL
 ```
 
-Sidenote - typically CDPs would be configured during CA generation - review ```*.cnf``` files in the CA directory
+**Sidenote - typically CDPs would be configured during CA generation - review ```*.cnf``` files in the CA directory**
+
+**To view the resulting CRL:**
+
+```
+openssl crl -inform PEM -in CA/cacrl.pem  -text
+```
+
 
 ## Extending CA certificate validity
 
