@@ -3,6 +3,28 @@ Simple demo CA meant to create head-end and user/spoke certificates for Juniper 
 
 Alternative certificate subject names are DNS for VPN head-end(s) and user FQDN (email) for VPN spokes/dial-up clients.
 
+## **Example IKE-ID use with the out of the box SRX_VPN_demo_CA certificates:**
+
+**SRX AutoVPN head-end**
+```
+set groups dial-up-vpn-cert security ike gateway ikev-gw dynamic user-at-hostname "@cert.auth"
+set groups dial-up-vpn-cert security ike gateway ikev-gw dynamic ike-user-type group-ike-id
+set groups dial-up-vpn-cert security ike gateway ikev-gw local-identity hostname srx.domain.tld
+```
+
+**Linux strongSwan spoke** ```swanctl.conf```
+```
+local {
+   auth = pubkey
+   id = user1@cert.auth
+   certs = user1-cert.pem
+}
+remote {
+   auth = pubkey 
+   id = srx.domain.tld
+}
+```
+
 # Instructions:
 
 1.  put desired SRX certificate DNS subject alternative name to ```cert_list_server file```, line by line for more certificates
