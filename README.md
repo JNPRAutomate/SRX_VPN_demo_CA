@@ -259,7 +259,7 @@ openssl crl -inform DER -in CA/cacrl.crl  -text
 
 ## Extending CA certificate validity
 
-To re-issue CA certificate with validity time by 10 days:
+**To re-issue CA certificate with validity time by 10 days:**
 
 ```
 ./5_CA_renew.sh 10
