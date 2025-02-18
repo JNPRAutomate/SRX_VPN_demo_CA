@@ -27,6 +27,12 @@ remote {
 
 # Instructions:
 
+Clone from GitHub
+```
+git clone https://github.com/JNPRAutomate/SRX_VPN_demo_CA
+```
+or download provided ```.zip``` file, then:
+
 1.  put desired SRX certificate DNS subject alternative name to ```cert_list_server file```, line by line for more certificates
 
 2.  put desired user certificate Email subject alternative name to ```cert_list_user``` file, line by line for more certificates
